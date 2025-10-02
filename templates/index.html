@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Risk Prediction App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header>
+        <h1>🌊 Flood Risk Prediction App</h1>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link" data-module="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-module="predict">Predict Flood Risk</a></li>
+                <li><a href="#" class="nav-link" data-module="about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home -->
+        <div id="home" class="module active">
+            <h2>Welcome to the Flood Risk Prediction App</h2>
+            <p>Predict flood occurrence using environmental data and understand your risk.</p>
+        </div>
+
+        <!-- Predict Flood -->
+        <div id="predict" class="module">
+            <h2>Predict Flood Risk</h2>
+            <form id="predict-form">
+                <label>Latitude:</label>
+                <input type="number" name="Latitude" step="any"><br>
+
+                <label>Longitude:</label>
+                <input type="number" name="Longitude" step="any"><br>
+
+                <label>Rainfall (mm):</label>
+                <input type="number" name="Rainfall (mm)" step="any"><br>
+
+                <label>Temperature (°C):</label>
+                <input type="number" name="Temperature (°C)" step="any"><br>
+
+                <label>Humidity (%):</label>
+                <input type="number" name="Humidity (%)" step="any"><br>
+
+                <label>River Discharge (m³/s):</label>
+                <input type="number" name="River Discharge (m³/s)" step="any"><br>
+
+                <label>Water Level (m):</label>
+                <input type="number" name="Water Level (m)" step="any"><br>
+
+                <label>Elevation (m):</label>
+                <input type="number" name="Elevation (m)" step="any"><br>
+
+                <label>Land Cover:</label>
+                <select name="Land Cover">
+                    <option value="Agricultural">Agricultural</option>
+                    <option value="Forest">Forest</option>
+                    <option value="Desert">Desert</option>
+                    <option value="Water Body">Water Body</option>
+                    <option value="Urban">Urban</option>
+                </select><br>
+
+                <label>Soil Type:</label>
+                <select name="Soil Type">
+                    <option value="Clay">Clay</option>
+                    <option value="Peat">Peat</option>
+                    <option value="Loam">Loam</option>
+                    <option value="Sandy">Sandy</option>
+                    <option value="Silt">Silt</option>
+                </select><br>
+
+                <!-- New Fields -->
+                <label>Population Density:</label>
+                <input type="number" name="Population Density" step="any"><br>
+
+                <label>Infrastructure:</label>
+                <input type="number" name="Infrastructure" step="any"><br>
+
+                <label>Historical Floods:</label>
+                <input type="number" name="Historical Floods" step="any"><br>
+
+                <button type="button" id="predict-btn">Predict</button>
+            </form>
+            <div id="prediction-result"></div>
+        </div>
+
+        <!-- About -->
+        <div id="about" class="module">
+            <h2>About This App</h2>
+            <p>
+                This Flood Risk Prediction App predicts flood occurrence based on environmental and geographical data.
+            </p>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
