@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import joblib
 from sklearn.preprocessing import StandardScaler, LabelEncoder
+import os
 
 app = Flask(__name__)
 
@@ -40,7 +41,6 @@ scaler = StandardScaler().fit(df[numeric_features])
 
 # Load pre-trained RandomForest model
 model = joblib.load("flood_model.joblib")
-
 
 # -------------------------------
 # Routes
@@ -85,5 +85,9 @@ def predict():
         return jsonify({"error": str(e)})
 
 
+# -------------------------------
+# Run Flask app
+# -------------------------------
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Use Render's PORT variable
+    app.run(host="0.0.0.0", port=port, debug=False)
